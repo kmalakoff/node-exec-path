@@ -1,0 +1,4 @@
+{
+  "extends": "./node_modules/ts-dev-stack/config/.depcheckrc.json",
+  "ignores": ["node-exec-path", "@types/*", "@typescript-eslint/*", "eslint-*"]
+}
