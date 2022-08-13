@@ -1,1 +1,1 @@
-declare var path: any;
+declare const path: any;
