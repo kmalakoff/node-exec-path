@@ -32,8 +32,7 @@
   "scripts": {
     "build": "tsds build",
     "deploy": "tsds deploy",
-    "format": "tsds format",
-    "lint": "tsds lint",
+    "format": "biome check --apply src/ test/",
     "test": "tsds test:node",
     "test:engines": "nvu engines tsds test:node",
     "version": "tsds version"
@@ -41,19 +40,20 @@
   "dependencies": {
     "env-path-key": "^0.3.0",
     "fs-access-sync-compat": "^1.0.2",
-    "function-exec-sync": "^0.2.10",
+    "function-exec-sync": "^0.2.11",
     "semver": "^5.7.1"
   },
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^18.7.1",
-    "ts-dev-stack": "^0.8.7"
+    "@biomejs/biome": "^1.5.3",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.17",
+    "ts-dev-stack": "^0.9.3"
   },
   "engines": {
     "node": ">=0.8"
   },
   "tsds": {
-    "source": "src/index.ts",
+    "source": "src/index.js",
     "targets": [
       "cjs"
     ]
