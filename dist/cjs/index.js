@@ -5,12 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 Object.defineProperty(exports, "satisfiesSemverSync", {
     enumerable: true,
     get: function() {
-        return _satisfiesSemverSyncTs.default;
+        return _satisfiesSemverSyncts.default;
     }
 });
 require("./polyfills.js");
-var _satisfiesSemverSyncTs = /*#__PURE__*/ _interopRequireDefault(require("./satisfiesSemverSync.js"));
-function _interopRequireDefault(obj) {
+var _satisfiesSemverSyncts = /*#__PURE__*/ _interop_require_default(require("./satisfiesSemverSync.js"));
+function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
     };
