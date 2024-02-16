@@ -19,8 +19,8 @@ var functionExec = null; // break dependencies
 function satisfiesSemverSync(versionString) {
     var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     if (!functionExec) functionExec = require("function-exec-sync"); // break dependencies
-    var _env;
-    var env = (_env = options.env) !== null && _env !== void 0 ? _env : process.env;
+    var _options_env;
+    var env = (_options_env = options.env) !== null && _options_env !== void 0 ? _options_env : process.env;
     var pathKey = envPathKey(env);
     var envPaths = env[pathKey].split(path.delimiter);
     for(var i = 0; i < envPaths.length; i++){
