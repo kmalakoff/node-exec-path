@@ -5,25 +5,25 @@ const { satisfiesSemverSync } = require('node-exec-path');
 describe('satisfiesSemverSync', function () {
   this.timeout(60000);
 
-  describe('happy path', function () {
-    it('>=12', function () {
+  describe('happy path', () => {
+    it('>=12', () => {
       const execPath = satisfiesSemverSync('>=12');
       assert.ok(execPath);
     });
 
-    it('>=12.0', function () {
+    it('>=12.0', () => {
       const execPath = satisfiesSemverSync('>=12.0');
       assert.ok(execPath);
     });
 
-    it('>=12.0.0', function () {
+    it('>=12.0.0', () => {
       const execPath = satisfiesSemverSync('>=12.0.0');
       assert.ok(execPath);
     });
   });
 
-  describe('unhappy path', function () {
-    it('<0.8', function () {
+  describe('unhappy path', () => {
+    it('<0.8', () => {
       const execPath = satisfiesSemverSync('<0.8');
       assert.ok(!execPath);
     });

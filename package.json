@@ -10,13 +10,13 @@
     "find",
     "semver"
   ],
-  "homepage": "https://github.com/node-exec-path#README.md",
+  "homepage": "https://github.com/kmalakoff/node-exec-path#README.md",
   "bugs": {
-    "url": "https://github.com/node-exec-path/issues"
+    "url": "https://github.com/kmalakoff/node-exec-path/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/node-exec-path.git"
+    "url": "git@github.com:kmalakoff/node-exec-path.git"
   },
   "license": "MIT",
   "author": {
@@ -32,22 +32,22 @@
   "scripts": {
     "build": "tsds build",
     "deploy": "tsds deploy",
-    "format": "tsds format",
-    "lint": "tsds lint",
-    "test": "tsds test:node",
-    "test:engines": "nvu engines tsds test:node",
+    "format": "biome check --apply-unsafe src/ test/",
+    "test": "tsds test:node --timeout=10000",
+    "test:engines": "nvu engines tsds test:node --timeout=10000",
     "version": "tsds version"
   },
   "dependencies": {
     "env-path-key": "^0.3.0",
     "fs-access-sync-compat": "^1.0.2",
-    "function-exec-sync": "^0.2.10",
+    "function-exec-sync": "^0.2.11",
     "semver": "^5.7.1"
   },
   "devDependencies": {
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^18.7.1",
-    "ts-dev-stack": "^0.8.7"
+    "@biomejs/biome": "^1.5.3",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.19",
+    "ts-dev-stack": "^0.14.2"
   },
   "engines": {
     "node": ">=0.8"

@@ -1,11 +1,13 @@
-require('./polyfills.ts');
+import './polyfills.ts';
 
-const path = require('path');
-const envPathKey = require('env-path-key');
-const semver = require('semver');
+import path from 'path';
+import envPathKey from 'env-path-key';
+import semver from 'semver';
 
-const constants = require('./constants');
-const existsSync = require('./existsSync');
+// @ts-ignore
+import constants from './constants.ts';
+// @ts-ignore
+import existsSync from './existsSync.ts';
 
 const processVersion = path.join(__dirname, 'workers', 'processVersion.js');
 
