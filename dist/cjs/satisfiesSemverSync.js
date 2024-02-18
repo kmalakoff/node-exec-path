@@ -9,34 +9,34 @@ Object.defineProperty(exports, "default", {
     }
 });
 require("./polyfills.js");
-var path = require("path");
-var envPathKey = require("env-path-key");
-var semver = require("semver");
-var constants = require("./constants");
-var existsSync = require("./existsSync");
-var processVersion = path.join(__dirname, "workers", "processVersion.js");
+var _path = /*#__PURE__*/ _interop_require_default(require("path"));
+var _envpathkey = /*#__PURE__*/ _interop_require_default(require("env-path-key"));
+var _semver = /*#__PURE__*/ _interop_require_default(require("semver"));
+var _constantsts = /*#__PURE__*/ _interop_require_default(require("./constants.js"));
+var _existsSyncts = /*#__PURE__*/ _interop_require_default(require("./existsSync.js"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+var processVersion = _path.default.join(__dirname, "workers", "processVersion.js");
 var functionExec = null; // break dependencies
 function satisfiesSemverSync(versionString) {
     var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
     if (!functionExec) functionExec = require("function-exec-sync"); // break dependencies
-    var _env;
-    var env = (_env = options.env) !== null && _env !== void 0 ? _env : process.env;
-    var pathKey = envPathKey(env);
-    var envPaths = env[pathKey].split(path.delimiter);
+    var _options_env;
+    var env = (_options_env = options.env) !== null && _options_env !== void 0 ? _options_env : process.env;
+    var pathKey = (0, _envpathkey.default)(env);
+    var envPaths = env[pathKey].split(_path.default.delimiter);
     for(var i = 0; i < envPaths.length; i++){
         var envPath = envPaths[i];
-        var execPath = path.join(envPath, constants.node);
-        if (!existsSync(execPath)) continue;
+        var execPath = _path.default.join(envPath, _constantsts.default.node);
+        if (!(0, _existsSyncts.default)(execPath)) continue;
         var version = functionExec({
             execPath: execPath
         }, processVersion);
-        if (semver.satisfies(version, versionString)) return execPath;
+        if (_semver.default.satisfies(version, versionString)) return execPath;
     }
     return null;
 }
-
-if ((typeof exports.default === 'function' || (typeof exports.default === 'object' && exports.default !== null)) && typeof exports.default.__esModule === 'undefined') {
-  Object.defineProperty(exports.default, '__esModule', { value: true });
-  for (var key in exports) exports.default[key] = exports[key];
-  module.exports = exports.default;
-}
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { module.exports = exports.default; for (var key in exports) module.exports[key] = exports[key]; }

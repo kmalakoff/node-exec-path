@@ -1,4 +1,5 @@
-export declare type satisfiesSemverSyncOptions = {
+import './polyfills.ts';
+export type satisfiesSemverSyncOptions = {
     env?: object;
 };
 export default function satisfiesSemverSync(versionString: string, options?: satisfiesSemverSyncOptions): string | null;

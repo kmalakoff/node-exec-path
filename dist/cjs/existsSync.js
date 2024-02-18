@@ -8,18 +8,18 @@ Object.defineProperty(exports, "default", {
         return path;
     }
 });
-var accessSync = require("fs-access-sync-compat");
+var _fsaccesssynccompat = /*#__PURE__*/ _interop_require_default(require("fs-access-sync-compat"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 function path(path) {
     try {
-        accessSync(path);
+        (0, _fsaccesssynccompat.default)(path);
         return true;
-    } catch (err) {
+    } catch (_err) {
         return false;
     }
 }
-
-if ((typeof exports.default === 'function' || (typeof exports.default === 'object' && exports.default !== null)) && typeof exports.default.__esModule === 'undefined') {
-  Object.defineProperty(exports.default, '__esModule', { value: true });
-  for (var key in exports) exports.default[key] = exports[key];
-  module.exports = exports.default;
-}
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { module.exports = exports.default; for (var key in exports) module.exports[key] = exports[key]; }
