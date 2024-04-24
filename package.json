@@ -44,10 +44,10 @@
     "semver": "^5.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
+    "@biomejs/biome": "^1.7.1",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.11.19",
-    "ts-dev-stack": "^0.14.2"
+    "@types/node": "^20.12.7",
+    "ts-dev-stack": "^0.15.8"
   },
   "engines": {
     "node": ">=0.8"
