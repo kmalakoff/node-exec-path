@@ -19,11 +19,11 @@ function _interop_require_default(obj) {
         default: obj
     };
 }
-var processVersion = _path.default.join(__dirname, "workers", "processVersion.js");
+var processVersion = _path.default.join(__dirname, 'workers', 'processVersion.js');
 var functionExec = null; // break dependencies
 function satisfiesSemverSync(versionString) {
     var options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
-    if (!functionExec) functionExec = require("function-exec-sync"); // break dependencies
+    if (!functionExec) functionExec = require('function-exec-sync'); // break dependencies
     var _options_env;
     var env = (_options_env = options.env) !== null && _options_env !== void 0 ? _options_env : process.env;
     var pathKey = (0, _envpathkey.default)(env);
@@ -39,4 +39,4 @@ function satisfiesSemverSync(versionString) {
     }
     return null;
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { module.exports = exports.default; for (var key in exports) module.exports[key] = exports[key]; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
