@@ -1,3 +1,7 @@
 import path from 'path';
-// @ts-ignore
-if (!path.delimiter) path.delimiter = process.platform === 'win32' ? ';' : ':';
+
+if (!path.delimiter) {
+  const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
+  // @ts-ignore
+  path.delimiter = isWindows ? ';' : ':';
+}
