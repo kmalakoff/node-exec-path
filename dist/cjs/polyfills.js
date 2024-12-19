@@ -8,6 +8,9 @@ function _interop_require_default(obj) {
         default: obj
     };
 }
-// @ts-ignore
-if (!_path.default.delimiter) _path.default.delimiter = process.platform === 'win32' ? ';' : ':';
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+if (!_path.default.delimiter) {
+    var isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
+    // @ts-ignore
+    _path.default.delimiter = isWindows ? ';' : ':';
+}
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }

@@ -4,10 +4,8 @@ import path from 'path';
 import envPathKey from 'env-path-key';
 import semver from 'semver';
 
-// @ts-ignore
-import constants from './constants.ts';
-// @ts-ignore
-import existsSync from './existsSync.ts';
+import constants from './constants.js';
+import existsSync from './existsSync.js';
 
 const processVersion = path.join(__dirname, 'workers', 'processVersion.js');
 

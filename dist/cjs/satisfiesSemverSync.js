@@ -12,8 +12,8 @@ require("./polyfills.js");
 var _path = /*#__PURE__*/ _interop_require_default(require("path"));
 var _envpathkey = /*#__PURE__*/ _interop_require_default(require("env-path-key"));
 var _semver = /*#__PURE__*/ _interop_require_default(require("semver"));
-var _constantsts = /*#__PURE__*/ _interop_require_default(require("./constants.js"));
-var _existsSyncts = /*#__PURE__*/ _interop_require_default(require("./existsSync.js"));
+var _constants = /*#__PURE__*/ _interop_require_default(require("./constants.js"));
+var _existsSync = /*#__PURE__*/ _interop_require_default(require("./existsSync.js"));
 function _interop_require_default(obj) {
     return obj && obj.__esModule ? obj : {
         default: obj
@@ -30,8 +30,8 @@ function satisfiesSemverSync(versionString) {
     var envPaths = env[pathKey].split(_path.default.delimiter);
     for(var i = 0; i < envPaths.length; i++){
         var envPath = envPaths[i];
-        var execPath = _path.default.join(envPath, _constantsts.default.node);
-        if (!(0, _existsSyncts.default)(execPath)) continue;
+        var execPath = _path.default.join(envPath, _constants.default.node);
+        if (!(0, _existsSync.default)(execPath)) continue;
         var version = functionExec({
             execPath: execPath
         }, processVersion);
@@ -39,4 +39,4 @@ function satisfiesSemverSync(versionString) {
     }
     return null;
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }
