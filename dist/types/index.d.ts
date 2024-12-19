@@ -1,3 +1,3 @@
-import './polyfills.ts';
-export { default as satisfiesSemverSync } from './satisfiesSemverSync.ts';
-export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync.ts';
+import './polyfills.js';
+export { default as satisfiesSemverSync } from './satisfiesSemverSync.js';
+export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync.js';

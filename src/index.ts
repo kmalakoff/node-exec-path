@@ -1,7 +1,3 @@
-// @ts-ignore
-import './polyfills.ts';
-
-// @ts-ignore
-export { default as satisfiesSemverSync } from './satisfiesSemverSync.ts';
-// @ts-ignore
-export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync.ts';
+import './polyfills.js';
+export { default as satisfiesSemverSync } from './satisfiesSemverSync.js';
+export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync.js';

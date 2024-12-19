@@ -33,21 +33,21 @@
     "build": "tsds build",
     "deploy": "tsds deploy",
     "format": "biome check --write --unsafe src/ test/",
-    "test": "tsds test:node --timeout=10000",
-    "test:engines": "nvu engines tsds test:node --timeout=10000",
+    "test": "tsds test:node --no-timeouts",
+    "test:engines": "nvu engines tsds test:node --no-timeouts",
     "version": "tsds version"
   },
   "dependencies": {
     "env-path-key": "^1.0.0",
     "fs-access-sync-compat": "^1.0.2",
-    "function-exec-sync": "^1.0.0",
+    "function-exec-sync": "^1.0.1",
     "semver": "^5.7.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.1",
-    "ts-dev-stack": "^0.16.3"
+    "@types/node": "^22.10.2",
+    "ts-dev-stack": "^1.2.5"
   },
   "engines": {
     "node": ">=0.8"
