@@ -1,15 +1,14 @@
 import './polyfills.ts';
 
 import path from 'path';
+import url from 'url';
 import envPathKey from 'env-path-key';
+import existsSync from 'fs-exists-sync';
 import semver from 'semver';
+import constants from './constants';
 
-// @ts-ignore
-import constants from './constants.ts';
-// @ts-ignore
-import existsSync from './existsSync.ts';
-
-const processVersion = path.join(__dirname, 'workers', 'processVersion.js');
+const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
+const processVersion = path.join(__dirname, 'workers', 'processVersion.cjs');
 
 export type satisfiesSemverSyncOptions = {
   env?: object;
@@ -19,7 +18,7 @@ let functionExec = null; // break dependencies
 export default function satisfiesSemverSync(versionString: string, options: satisfiesSemverSyncOptions = {}): string | null {
   if (!functionExec) functionExec = require('function-exec-sync'); // break dependencies
 
-  const env = options.env ?? process.env;
+  const env = options.env || process.env;
   const pathKey = envPathKey(env);
   const envPaths = env[pathKey].split(path.delimiter);
 
