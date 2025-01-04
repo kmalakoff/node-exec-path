@@ -32,6 +32,7 @@
   "scripts": {
     "build": "tsds build",
     "deploy": "tsds deploy",
+    "docs": "tsds docs",
     "format": "biome check --write --unsafe src/ test/",
     "test": "tsds test:node --no-timeouts",
     "test:engines": "nvu engines tsds test:node --no-timeouts",
@@ -39,8 +40,7 @@
   },
   "dependencies": {
     "env-path-key": "^1.0.0",
-    "fs-exists-sync": "^0.1.0",
-    "function-exec-sync": "^1.1.6",
+    "function-exec-sync": "^1.1.7",
     "semver": "^5.7.1"
   },
   "devDependencies": {
