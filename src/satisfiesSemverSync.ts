@@ -1,11 +1,20 @@
 import './polyfills.ts';
 
+import fs from 'fs';
 import path from 'path';
 import url from 'url';
 import envPathKey from 'env-path-key';
-import existsSync from 'fs-exists-sync';
 import semver from 'semver';
 import constants from './constants';
+
+const existsSync = (test) => {
+  try {
+    (fs.accessSync || fs.statSync)(test);
+    return true;
+  } catch (_) {
+    return false;
+  }
+};
 
 const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
 const processVersion = path.join(__dirname, 'workers', 'processVersion.cjs');
