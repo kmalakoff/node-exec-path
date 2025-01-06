@@ -2,9 +2,7 @@ const assert = require('assert');
 
 const { satisfiesSemverSync } = require('node-exec-path');
 
-describe('satisfiesSemverSync', function () {
-  this.timeout(60000);
-
+describe('satisfiesSemverSync', () => {
   describe('happy path', () => {
     it('>=12', () => {
       const execPath = satisfiesSemverSync('>=12');
