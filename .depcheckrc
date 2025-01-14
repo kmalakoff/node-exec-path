@@ -1,1 +1,1 @@
-ignores: ["node-exec-path", "depcheck", "@types/*", "@biomejs/*"]
+ignores: ["@types/*", "node-exec-path", "depcheck", "@biomejs/*"]
