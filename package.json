@@ -37,14 +37,13 @@
     "version": "tsds version"
   },
   "dependencies": {
-    "env-path-key": "^1.0.8",
-    "function-exec-sync": "^1.2.9",
+    "env-path-key": "^1.0.9",
+    "function-exec-sync": "^1.2.10",
     "semver": "^5.7.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.5"
+    "@types/mocha": "*",
+    "@types/node": "*"
   },
   "engines": {
     "node": ">=0.8"
