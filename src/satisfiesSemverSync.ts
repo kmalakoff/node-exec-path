@@ -3,10 +3,10 @@ import path from 'path';
 import url from 'url';
 import envPathKey from 'env-path-key';
 import semver from 'semver';
-import constants from './constants';
 
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
-const pathDelimiter = path.delimiter || isWindows ? ';' : ':';
+const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
+const NODE = isWindows ? 'node.exe' : 'node';
 
 const existsSync = (test) => {
   try {
@@ -34,7 +34,7 @@ export default function satisfiesSemverSync(versionString: string, options: sati
 
   for (let i = 0; i < envPaths.length; i++) {
     const envPath = envPaths[i];
-    const execPath = path.join(envPath, constants.node);
+    const execPath = path.join(envPath, NODE);
     if (!existsSync(execPath)) continue;
     const version = functionExec({ execPath }, processVersion);
     if (semver.satisfies(version, versionString)) return execPath;
