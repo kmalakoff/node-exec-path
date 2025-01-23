@@ -1,11 +1,12 @@
-import './polyfills.ts';
-
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
 import envPathKey from 'env-path-key';
 import semver from 'semver';
 import constants from './constants';
+
+const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
+const pathDelimiter = isWindows ? ';' : ':';
 
 const existsSync = (test) => {
   try {
@@ -29,7 +30,7 @@ export default function satisfiesSemverSync(versionString: string, options: sati
 
   const env = options.env || process.env;
   const pathKey = envPathKey(env);
-  const envPaths = env[pathKey].split(path.delimiter);
+  const envPaths = env[pathKey].split(pathDelimiter);
 
   for (let i = 0; i < envPaths.length; i++) {
     const envPath = envPaths[i];
