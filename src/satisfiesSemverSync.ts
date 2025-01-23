@@ -6,7 +6,7 @@ import semver from 'semver';
 import constants from './constants';
 
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
-const pathDelimiter = isWindows ? ';' : ':';
+const pathDelimiter = path.delimiter || isWindows ? ';' : ':';
 
 const existsSync = (test) => {
   try {
