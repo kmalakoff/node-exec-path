@@ -1,6 +1,6 @@
 {
   "name": "node-exec-path",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "Helpers for node executable paths",
   "keywords": [
     "node",
