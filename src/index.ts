@@ -1,2 +1,2 @@
-export { default as satisfiesSemverSync } from './satisfiesSemverSync';
-export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync';
+export { default as satisfiesSemverSync } from './satisfiesSemverSync.js';
+export type { satisfiesSemverSyncOptions } from './satisfiesSemverSync.js';
