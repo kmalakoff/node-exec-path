@@ -1,6 +1,7 @@
-const assert = require('assert');
+import assert from 'assert';
 
-const { satisfiesSemverSync } = require('node-exec-path');
+// @ts-ignore
+import { satisfiesSemverSync } from 'node-exec-path';
 
 describe('satisfiesSemverSync', () => {
   describe('happy path', () => {
