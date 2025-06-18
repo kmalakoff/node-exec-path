@@ -1,9 +1,9 @@
+import envPathKey from 'env-path-key';
 import fs from 'fs';
 import Module from 'module';
 import path from 'path';
-import url from 'url';
-import envPathKey from 'env-path-key';
 import semver from 'semver';
+import url from 'url';
 
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
 const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
