@@ -10,7 +10,7 @@ const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
 const NODE = isWindows ? 'node.exe' : 'node';
 const _require = typeof require === 'undefined' ? Module.createRequire(import.meta.url) : require;
 
-const existsSync = (test) => {
+const existsSync = (test: string): boolean => {
   try {
     (fs.accessSync || fs.statSync)(test);
     return true;
