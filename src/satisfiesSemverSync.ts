@@ -20,7 +20,7 @@ const existsSync = (test) => {
 };
 
 const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
-const processVersion = path.join(__dirname, 'workers', typeof require === 'undefined' ? 'processVersion.cjs' : 'processVersion.js');
+const processVersion = path.join(__dirname, 'workers', 'processVersion.cjs');
 
 export type satisfiesSemverSyncOptions = {
   env?: object;
