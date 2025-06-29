@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "env-path-key": "^1.0.20",
-    "function-exec-sync": "^1.4.3",
+    "function-exec-sync": "^1.4.4",
     "semver": "^5.7.1"
   },
   "devDependencies": {
