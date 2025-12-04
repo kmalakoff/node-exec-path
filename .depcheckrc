@@ -1,1 +1,1 @@
-ignores: ["node-version-use", "ts-dev-stack", "@biomejs/biome", "node-exec-path", "function-exec-sync"]
+ignores: ["node-version-use", "ts-dev-stack", "node-exec-path", "function-exec-sync"]
