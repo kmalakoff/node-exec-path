@@ -20,7 +20,8 @@ const existsSync = (test: string): boolean => {
 };
 
 const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
-const processVersion = path.join(__dirname, 'workers', 'processVersion.cjs');
+// Worker MUST always load from dist/cjs/ for old Node compatibility (works from both cjs and esm)
+const processVersion = path.join(__dirname, '..', 'cjs', 'workers', 'processVersion.js');
 
 export type satisfiesSemverSyncOptions = {
   env?: object;
