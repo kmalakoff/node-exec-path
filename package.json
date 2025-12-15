@@ -48,15 +48,15 @@
   },
   "dependencies": {
     "env-path-key": "^1.1.8",
-    "function-exec-sync": "^1.5.4",
+    "function-exec-sync": "^1.5.6",
     "semver": "^5.7.1"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.10",
-    "@types/node": "^25.0.1",
-    "node-version-use": "^2.1.5",
-    "ts-dev-stack": "^1.21.3",
-    "tsds-config": "^0.2.1"
+    "@types/mocha": "*",
+    "@types/node": "*",
+    "node-version-use": "*",
+    "ts-dev-stack": "*",
+    "tsds-config": "*"
   },
   "engines": {
     "node": ">=0.8"
