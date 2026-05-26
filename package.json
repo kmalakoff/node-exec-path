@@ -48,12 +48,13 @@
   },
   "dependencies": {
     "env-path-key": "^1.0.0",
-    "function-exec-sync": "^1.0.0",
+    "function-exec-sync": "^2.0.1",
     "semver": "5.7.2"
   },
   "devDependencies": {
     "@types/mocha": "*",
     "@types/node": "*",
+    "@types/semver": "^7.7.1",
     "node-version-use": "*",
     "ts-dev-stack": "*",
     "tsds-config": "*"
