@@ -5,7 +5,7 @@ import path from 'path';
 import semver from 'semver';
 import url from 'url';
 
-const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
+const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE ?? '');
 const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
 const NODE = isWindows ? 'node.exe' : 'node';
 const _require = typeof require === 'undefined' ? Module.createRequire(import.meta.url) : require;
@@ -24,23 +24,24 @@ const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLTo
 const processVersion = path.join(__dirname, '..', 'cjs', 'workers', 'processVersion.js');
 
 export type satisfiesSemverSyncOptions = {
-  env?: object;
+  env?: NodeJS.ProcessEnv;
 };
 
-let functionExec = null; // break dependencies
+let functionExec: ((options: Record<string, unknown>, workerPath: string) => unknown) | null = null;
 export default function satisfiesSemverSync(versionString: string, options: satisfiesSemverSyncOptions = {}): string | null {
   if (!functionExec) functionExec = _require('function-exec-sync'); // break dependencies
+  const exec = functionExec as (options: Record<string, unknown>, workerPath: string) => unknown;
 
   const env = options.env || process.env;
   const pathKey = envPathKey(env);
-  const envPaths = env[pathKey].split(pathDelimiter);
+  const envPaths = (env[pathKey] ?? '').split(pathDelimiter);
 
   for (let i = 0; i < envPaths.length; i++) {
     const envPath = envPaths[i];
     const execPath = path.join(envPath, NODE);
     if (!existsSync(execPath)) continue;
-    const version = functionExec({ execPath }, processVersion);
-    if (semver.satisfies(version, versionString)) return execPath;
+    const version = exec({ execPath }, processVersion);
+    if (semver.satisfies(version as string, versionString)) return execPath;
   }
 
   return null;
