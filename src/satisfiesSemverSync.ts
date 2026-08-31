@@ -1,23 +1,14 @@
 import envPathKey from 'env-path-key';
-import fs from 'fs';
 import Module from 'module';
 import path from 'path';
 import semver from 'semver';
 import url from 'url';
+import { existsSync } from './compat.ts';
 
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE ?? '');
 const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
 const NODE = isWindows ? 'node.exe' : 'node';
 const _require = typeof require === 'undefined' ? Module.createRequire(import.meta.url) : require;
-
-const existsSync = (test: string): boolean => {
-  try {
-    (fs.accessSync || fs.statSync)(test);
-    return true;
-  } catch (_) {
-    return false;
-  }
-};
 
 const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
 // Worker MUST always load from dist/cjs/ for old Node compatibility (works from both cjs and esm)
