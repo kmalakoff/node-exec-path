@@ -1,4 +1,5 @@
 import fs from 'fs';
+import Module from 'module';
 import path from 'path';
 import url from 'url';
 import envPathKey from 'env-path-key';
@@ -7,6 +8,7 @@ import semver from 'semver';
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE);
 const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
 const NODE = isWindows ? 'node.exe' : 'node';
+const _require = typeof require === 'undefined' ? Module.createRequire(import.meta.url) : require;
 
 const existsSync = (test) => {
   try {
@@ -26,7 +28,7 @@ export type satisfiesSemverSyncOptions = {
 
 let functionExec = null; // break dependencies
 export default function satisfiesSemverSync(versionString: string, options: satisfiesSemverSyncOptions = {}): string | null {
-  if (!functionExec) functionExec = require('function-exec-sync'); // break dependencies
+  if (!functionExec) functionExec = _require('function-exec-sync'); // break dependencies
 
   const env = options.env || process.env;
   const pathKey = envPathKey(env);
