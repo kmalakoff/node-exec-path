@@ -45,8 +45,8 @@
     "version": "tsds version"
   },
   "dependencies": {
-    "env-path-key": "^1.0.20",
-    "function-exec-sync": "^1.4.4",
+    "env-path-key": "^1.1.0",
+    "function-exec-sync": "^1.4.5",
     "semver": "^5.7.1"
   },
   "devDependencies": {
