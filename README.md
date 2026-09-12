@@ -1,15 +1,20 @@
-## node-exec-path
+# node-exec-path
 
-Helpers for node executable paths
+Find a Node.js executable in `PATH` that satisfies a semver range.
 
-### Example 1
-
-```typescript
-import { satisfiesSemverSync } from "node-exec-path";
-
-const execPath = satisfiesSemverSync(">=18.0"); // path or null
+```sh
+npm install node-exec-path
 ```
 
-### Documentation
+## Usage
+
+```js
+const { satisfiesSemverSync } = require('node-exec-path');
+
+const execPath = satisfiesSemverSync('>=18.0');
+console.log(execPath || 'No matching Node.js executable found in PATH');
+```
+
+## Documentation
 
 [API Docs](https://kmalakoff.github.io/node-exec-path/)
