@@ -55,6 +55,7 @@
     "@types/mocha": "*",
     "@types/node": "*",
     "@types/semver": "^7.7.1",
+    "cross-spawn-cb": "^3.0.0",
     "node-version-use": "*",
     "ts-dev-stack": "*",
     "tsds-config": "*"

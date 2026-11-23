@@ -8,9 +8,10 @@ import { existsSync } from './compat.ts';
 const isWindows = process.platform === 'win32' || /^(msys|cygwin)$/.test(process.env.OSTYPE ?? '');
 const pathDelimiter = path.delimiter ? path.delimiter : isWindows ? ';' : ':';
 const NODE = isWindows ? 'node.exe' : 'node';
-const _require = typeof require === 'undefined' ? Module.createRequire(import.meta.url) : require;
-
-const __dirname = path.dirname(typeof __filename === 'undefined' ? url.fileURLToPath(import.meta.url) : __filename);
+// `node -e`, `node -p` and stdin scripts define require and __filename as globals, so a typeof check alone
+// sends the ESM build down the CJS branch there; only the CJS build has module-scoped bindings that differ from the globals.
+const _require = typeof require !== 'undefined' && require !== global.require ? require : Module.createRequire(import.meta.url);
+const __dirname = path.dirname(typeof __filename !== 'undefined' && __filename !== global.__filename ? __filename : url.fileURLToPath(import.meta.url));
 // Worker MUST always load from dist/cjs/ for old Node compatibility (works from both cjs and esm)
 const processVersion = path.join(__dirname, '..', 'cjs', 'workers', 'processVersion.js');
 
